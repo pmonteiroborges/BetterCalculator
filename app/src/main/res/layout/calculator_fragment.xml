@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.bettercalculator.ui.main.CalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryDarkColor"
+        android:theme="@style/AppTheme"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/display_value"
+            android:layout_width="344dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="160dp"
+            android:maxLines="1"
+            android:singleLine="false"
+            android:text="@string/starting_value"
+            android:textAlignment="viewEnd"
+            android:textSize="72sp"
+            app:layout_constraintEnd_toEndOf="@+id/button_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_zero"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_zero_width"
+            android:layout_height="@dimen/button_height"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(0)}"
+            android:text="@string/button_zero"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="@+id/button_one"
+            app:layout_constraintTop_toBottomOf="@+id/button_one" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_one"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_one"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(1)}"
+            android:theme="@style/Widget.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/button_four"
+            app:layout_constraintTop_toBottomOf="@+id/button_four" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_two"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_two"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(2)}"
+            app:layout_constraintStart_toStartOf="@+id/button_five"
+            app:layout_constraintTop_toBottomOf="@+id/button_five" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_three"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_three"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(3)}"
+            app:layout_constraintStart_toStartOf="@+id/button_six"
+            app:layout_constraintTop_toBottomOf="@+id/button_six" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_four"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_four"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(4)}"
+            app:layout_constraintStart_toStartOf="@+id/button_seven"
+            app:layout_constraintTop_toBottomOf="@+id/button_seven" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_five"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(5)}"
+            android:text="@string/button_five"
+            app:layout_constraintStart_toStartOf="@+id/button_eight"
+            app:layout_constraintTop_toBottomOf="@+id/button_eight" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_six"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_six"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(6)}"
+            app:layout_constraintStart_toStartOf="@+id/button_nine"
+            app:layout_constraintTop_toBottomOf="@+id/button_nine" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_seven"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_seven"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(7)}"
+            app:layout_constraintStart_toStartOf="@+id/button_erase"
+            app:layout_constraintTop_toBottomOf="@+id/button_erase" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_eight"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_eight"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(8)}"
+            app:layout_constraintStart_toStartOf="@+id/button_change_sign"
+            app:layout_constraintTop_toBottomOf="@+id/button_change_sign" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_nine"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_nine"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(9)}"
+            app:layout_constraintStart_toStartOf="@+id/button_percent"
+            app:layout_constraintTop_toBottomOf="@+id/button_percent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_plus"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_plus"
+            app:layout_constraintStart_toStartOf="@+id/button_minus"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_minus"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_minus"
+            app:layout_constraintStart_toStartOf="@+id/button_times"
+            app:layout_constraintTop_toBottomOf="@+id/button_times" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_times"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_times"
+            app:layout_constraintStart_toStartOf="@+id/button_divide"
+            app:layout_constraintTop_toBottomOf="@+id/button_divide" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_divide"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_divide"
+            app:layout_constraintStart_toEndOf="@+id/button_percent"
+            app:layout_constraintTop_toTopOf="@+id/button_percent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_erase"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="260dp"
+            android:onClick="@{() -> viewModel.onClearButtonClicked()}"
+            android:text="@string/button_erase"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/display_value" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_equals"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/button_equal"
+            android:onClick="@{() -> viewModel.onEqualsButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_plus"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_change_sign"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_change_sign_text"
+            android:onClick="@{() -> viewModel.onChangeSignButtonClicked()}"
+            app:layout_constraintStart_toEndOf="@+id/button_erase"
+            app:layout_constraintTop_toTopOf="@+id/button_erase" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_percent"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_percent_text"
+            android:onClick="@{() -> viewModel.onPercentButtonClicked()}"
+            app:layout_constraintStart_toEndOf="@+id/button_change_sign"
+            app:layout_constraintTop_toTopOf="@+id/button_change_sign" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_decimal"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:onClick="@{() -> viewModel.onDecimalButtonClicked()}"
+            android:text="@string/button_decimal_string"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/button_three"
+            app:layout_constraintTop_toBottomOf="@+id/button_three" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.bettercalculator.ui.main.CalculatorViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primaryDarkColor"
+        android:theme="@style/AppTheme"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/display_value"
+            android:layout_width="676dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="@string/starting_value"
+            android:textAlignment="textEnd"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="@+id/button_divide"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_zero"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_zero_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_zero"
+            android:textAlignment="center"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(0)}"
+            app:layout_constraintBottom_toBottomOf="@+id/button_decimal"
+            app:layout_constraintStart_toStartOf="@+id/button_one"
+            app:layout_constraintTop_toBottomOf="@+id/button_one"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_one"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_one"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(1)}"
+            android:theme="@style/Widget.AppCompat.Button"
+            app:layout_constraintStart_toStartOf="@+id/button_four"
+            app:layout_constraintTop_toBottomOf="@+id/button_four" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_two"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_two"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(2)}"
+            app:layout_constraintStart_toStartOf="@+id/button_five"
+            app:layout_constraintTop_toBottomOf="@+id/button_five" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_three"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_three"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(3)}"
+            app:layout_constraintStart_toStartOf="@+id/button_six"
+            app:layout_constraintTop_toBottomOf="@+id/button_six" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_four"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_four"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(4)}"
+            app:layout_constraintStart_toStartOf="@+id/button_seven"
+            app:layout_constraintTop_toBottomOf="@+id/button_seven" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_five"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_five"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(5)}"
+            app:layout_constraintStart_toStartOf="@+id/button_eight"
+            app:layout_constraintTop_toBottomOf="@+id/button_eight" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_six"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_six"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(6)}"
+            app:layout_constraintStart_toStartOf="@+id/button_nine"
+            app:layout_constraintTop_toBottomOf="@+id/button_nine" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_seven"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_seven"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(7)}"
+            app:layout_constraintStart_toStartOf="@+id/button_erase"
+            app:layout_constraintTop_toBottomOf="@+id/button_erase" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_eight"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_eight"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(8)}"
+            app:layout_constraintStart_toStartOf="@+id/button_change_sign"
+            app:layout_constraintTop_toBottomOf="@+id/button_change_sign" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_nine"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onNumberButtonClicked(9)}"
+            android:text="@string/button_nine"
+            app:layout_constraintStart_toStartOf="@+id/button_percent"
+            app:layout_constraintTop_toBottomOf="@+id/button_percent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_plus"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_plus"
+            app:layout_constraintStart_toStartOf="@+id/button_minus"
+            app:layout_constraintTop_toBottomOf="@+id/button_minus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_minus"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_minus"
+            app:layout_constraintStart_toStartOf="@+id/button_times"
+            app:layout_constraintTop_toBottomOf="@+id/button_times" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_times"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_times"
+            app:layout_constraintStart_toStartOf="@+id/button_divide"
+            app:layout_constraintTop_toBottomOf="@+id/button_divide" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_divide"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_divide"
+            app:layout_constraintStart_toEndOf="@+id/button_percent"
+            app:layout_constraintTop_toTopOf="@+id/button_percent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_erase"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:onClick="@{() -> viewModel.onClearButtonClicked()}"
+            android:text="@string/button_erase"
+            app:layout_constraintStart_toEndOf="@+id/button_10_to_the_x"
+            app:layout_constraintTop_toTopOf="@+id/button_right_paren" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_equals"
+            style="@style/OperatorButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_equal"
+            android:onClick="@{() -> viewModel.onEqualsButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_plus"
+            app:layout_constraintTop_toBottomOf="@+id/button_plus" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_change_sign"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_change_sign_text"
+            android:onClick="@{() -> viewModel.onChangeSignButtonClicked()}"
+            app:layout_constraintStart_toEndOf="@+id/button_erase"
+            app:layout_constraintTop_toTopOf="@+id/button_erase" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_percent"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_percent_text"
+            android:onClick="@{() -> viewModel.onPercentButtonClicked()}"
+            app:layout_constraintStart_toEndOf="@+id/button_change_sign"
+            app:layout_constraintTop_toTopOf="@+id/button_change_sign" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_decimal"
+            style="@style/NumberButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_decimal_string"
+            android:onClick="@{() -> viewModel.onDecimalButtonClicked()}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button_equals"
+            app:layout_constraintStart_toStartOf="@+id/button_three" />
+
+        <Button
+            android:id="@+id/button_e_to_the_x"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:onClick="@{() -> viewModel.onEToTheXButtonClicked()}"
+            android:text="@string/button_e_to_the_x_string"
+            app:layout_constraintStart_toEndOf="@+id/button_n_to_the_m"
+            app:layout_constraintTop_toTopOf="@+id/button_n_to_the_m" />
+
+        <Button
+            android:id="@+id/button_left_paren"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginEnd="608dp"
+            android:onClick="@{() -> viewModel.onLeftParenButtonClicked()}"
+            android:text="@string/button_left_paren_string"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/display_value" />
+
+        <Button
+            android:id="@+id/button_right_paren"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_right_paren"
+            android:onClick="@{() -> viewModel.onRightParenButtonClicked()}"
+            app:layout_constraintStart_toEndOf="@+id/button_left_paren"
+            app:layout_constraintTop_toTopOf="@+id/button_left_paren" />
+
+        <Button
+            android:id="@+id/button_x_squared"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_x_squared_string"
+            android:onClick="@{() -> viewModel.onSquaredButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_right_paren"
+            app:layout_constraintTop_toBottomOf="@+id/button_right_paren" />
+
+        <Button
+            android:id="@+id/button_10_to_the_x"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:onClick="@{() -> viewModel.on10ToTheXButtonClicked()}"
+            android:text="@string/button_10_to_the_x"
+            app:layout_constraintStart_toEndOf="@+id/button_e_to_the_x"
+            app:layout_constraintTop_toTopOf="@+id/button_e_to_the_x" />
+
+        <Button
+            android:id="@+id/button_reciprocal"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onReciprocalButtonClicked()}"
+            android:text="@string/button_reciprocal"
+            app:layout_constraintStart_toStartOf="@+id/button_2nd"
+            app:layout_constraintTop_toBottomOf="@+id/button_2nd" />
+
+        <Button
+            android:id="@+id/button_square_root"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_square_root_string"
+            android:onClick="@{() -> viewModel.onSquareRootButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_x_squared"
+            app:layout_constraintTop_toBottomOf="@+id/button_x_squared" />
+
+        <Button
+            android:id="@+id/button_ln"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onNaturalLogButtonClicked()}"
+            android:text="@string/button_ln_string"
+            app:layout_constraintStart_toStartOf="@+id/button_e_to_the_x"
+            app:layout_constraintTop_toBottomOf="@+id/button_e_to_the_x" />
+
+        <Button
+            android:id="@+id/button_log"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onLogButtonClicked()}"
+            android:text="@string/button_log_string"
+            app:layout_constraintStart_toStartOf="@+id/button_10_to_the_x"
+            app:layout_constraintTop_toBottomOf="@+id/button_10_to_the_x" />
+
+        <Button
+            android:id="@+id/button_factorial"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_factorial_string"
+            android:onClick="@{() -> viewModel.onFactorialButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_reciprocal"
+            app:layout_constraintTop_toBottomOf="@+id/button_reciprocal" />
+
+        <Button
+            android:id="@+id/button_cos"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onCosButtonClicked()}"
+            android:text="@string/button_cos_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_root"
+            app:layout_constraintTop_toBottomOf="@+id/button_root" />
+
+        <Button
+            android:id="@+id/button_tan"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onTanButtonClicked()}"
+            android:text="@string/button_tan_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_ln"
+            app:layout_constraintTop_toBottomOf="@+id/button_ln" />
+
+        <Button
+            android:id="@+id/button_e"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onDoubleButtonClicked(Math.E)}"
+            android:text="@string/button_e"
+            app:layout_constraintStart_toStartOf="@+id/button_log"
+            app:layout_constraintTop_toBottomOf="@+id/button_log" />
+
+        <Button
+            android:id="@+id/button_sin"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onSinButtonClicked()}"
+            android:text="@string/button_sin_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_square_root"
+            app:layout_constraintTop_toBottomOf="@+id/button_square_root" />
+
+        <Button
+            android:id="@+id/button_random"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:text="@string/button_random_string"
+            android:onClick="@{() -> viewModel.onRandomButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_factorial"
+            app:layout_constraintTop_toBottomOf="@+id/button_factorial" />
+
+        <Button
+            android:id="@+id/button_cosh"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onCosHButtonClicked()}"
+            android:text="@string/button_cosh_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_cos"
+            app:layout_constraintTop_toBottomOf="@+id/button_cos" />
+
+        <Button
+            android:id="@+id/button_tanh"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onTanHButtonClicked()}"
+            android:text="@string/button_tanh_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_tan"
+            app:layout_constraintTop_toBottomOf="@+id/button_tan" />
+
+        <Button
+            android:id="@+id/button_sinh"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onSinHButtonClicked()}"
+            android:text="@string/button_sinh_string"
+            android:textSize="@dimen/trig_text_size"
+            app:layout_constraintStart_toStartOf="@+id/button_sin"
+            app:layout_constraintTop_toBottomOf="@+id/button_sin" />
+
+        <Button
+            android:id="@+id/button_pi"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:onClick="@{() -> viewModel.onDoubleButtonClicked(Math.PI)}"
+            android:text="@string/button_pi_string"
+            app:layout_constraintStart_toStartOf="@+id/button_e"
+            app:layout_constraintTop_toBottomOf="@+id/button_e" />
+
+        <Button
+            android:id="@+id/button_n_to_the_m"
+            style="@style/LandscapeButtonStyle"
+            android:layout_width="@dimen/button_width_land"
+            android:layout_height="@dimen/button_height_land"
+            android:layout_marginStart="8dp"
+            android:text="@string/button_n_to_the_m_string"
+            app:layout_constraintStart_toEndOf="@+id/button_right_paren"
+            app:layout_constraintTop_toBottomOf="@+id/button_right_paren" />
+
+        <Button
+            android:id="@+id/button_root"
+            style="@style/LandscapeButtonStyle"
+            android:text="@string/button_root_string"
+            app:layout_constraintStart_toStartOf="@+id/button_n_to_the_m"
+            app:layout_constraintTop_toBottomOf="@+id/button_n_to_the_m" />
+
+        <Button
+            android:id="@+id/button_2nd"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onSecondClicked()}"
+            android:text="@string/button_2nd_string"
+            app:layout_constraintStart_toStartOf="@+id/button_left_paren"
+            app:layout_constraintTop_toBottomOf="@+id/button_left_paren" />
+
+        <Button
+            android:id="@+id/button_arcsin"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcSinButtonClicked()}"
+            android:text="@string/button_arcsin_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_square_root"
+            app:layout_constraintTop_toBottomOf="@+id/button_square_root" />
+
+        <Button
+            android:id="@+id/button_arccos"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcCosButtonClicked()}"
+            android:text="@string/button_arccos_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_root"
+            app:layout_constraintTop_toTopOf="@+id/button_cos" />
+
+        <Button
+            android:id="@+id/button_arctan"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcTanButtonClicked()}"
+            android:text="@string/button_arctan_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_ln"
+            app:layout_constraintTop_toBottomOf="@+id/button_ln" />
+
+        <Button
+            android:id="@+id/button_arcsinh"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcSinHButtonClicked()}"
+            android:text="@string/button_arcsinh_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_arcsin"
+            app:layout_constraintTop_toBottomOf="@+id/button_arcsin" />
+
+        <Button
+            android:id="@+id/button_arccosh"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcCosHButtonClicked()}"
+            android:text="@string/button_arcosh_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_arccos"
+            app:layout_constraintTop_toBottomOf="@+id/button_arccos" />
+
+        <Button
+            android:id="@+id/button_arctanh"
+            style="@style/LandscapeButtonStyle"
+            android:onClick="@{() -> viewModel.onArcTanHButtonClicked()}"
+            android:text="@string/button_arctanh_string"
+            android:textSize="@dimen/trig_text_size"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/button_arctan"
+            app:layout_constraintTop_toBottomOf="@+id/button_arctan" />
+
+        <Button
+            android:id="@+id/button_two_to_the_n"
+            style="@style/LandscapeButtonStyle"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="@{() -> viewModel.on2ToTheXButtonClicked()}"
+            android:text="@string/button_two_to_the_n_string"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/button_erase"
+            app:layout_constraintStart_toEndOf="@+id/button_e_to_the_x"
+            app:layout_constraintTop_toTopOf="@+id/button_e_to_the_x" />
+
+        <Button
+            android:id="@+id/button_log2"
+            style="@style/LandscapeButtonStyle"
+            android:text="@string/button_log2_string"
+            android:visibility="gone"
+            android:onClick="@{() -> viewModel.onLogBase2ButtonClicked()}"
+            app:layout_constraintStart_toStartOf="@+id/button_two_to_the_n"
+            app:layout_constraintTop_toBottomOf="@+id/button_two_to_the_n" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

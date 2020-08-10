@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height_land">62dp</dimen>
+    <dimen name="button_width_land">68dp</dimen>
+    <dimen name="button_zero_width_land">144dp</dimen>
+
+    <dimen name="button_height">80dp</dimen>
+    <dimen name="button_width">80dp</dimen>
+    <dimen name="button_zero_width">168dp</dimen>
+
+    <dimen name="trig_text_size">11sp</dimen>
+
+</resources>
